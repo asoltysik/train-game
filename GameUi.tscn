@@ -10,12 +10,16 @@ font_data = ExtResource( 2 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -0.840881
+margin_top = -1.26134
+margin_right = -0.840942
+margin_bottom = -1.26135
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Coins" type="HBoxContainer" parent="."]
-margin_right = 125.0
+margin_right = 88.0
 margin_bottom = 56.0
 rect_scale = Vector2( 1.00271, 0.996412 )
 __meta__ = {
@@ -29,8 +33,10 @@ texture = ExtResource( 1 )
 
 [node name="Label" type="Label" parent="Coins"]
 margin_left = 49.0
-margin_right = 79.0
+margin_right = 88.0
 margin_bottom = 56.0
+rect_min_size = Vector2( 10, 0 )
+size_flags_horizontal = 3
 custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 2
