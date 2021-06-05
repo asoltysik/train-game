@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/characters/main/bkspr01_move.png" type="Texture" id=1]
+[ext_resource path="res://character.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Jump"
@@ -64,8 +65,11 @@ tracks/0/keys = {
 radius = 21.4743
 height = 26.8791
 
-[node name="character" type="KinematicBody2D"]
-position = Vector2( 76.4136, 34.4611 )
+[node name="character" type="KinematicBody2D" groups=[
+"player",
+]]
+position = Vector2( 545.375, 407.15 )
+script = ExtResource( 2 )
 
 [node name="Player" type="AnimationPlayer" parent="."]
 anims/Jump = SubResource( 1 )
@@ -74,11 +78,10 @@ anims/Run = SubResource( 2 )
 [node name="sprite" type="Sprite" parent="."]
 position = Vector2( -9.21799, 35.4266 )
 texture = ExtResource( 1 )
-offset = Vector2( 0, -3.8961 )
 hframes = 2
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -8.485, 35.3247 )
+position = Vector2( -8.485, 40 )
 rotation = 1.5708
 shape = SubResource( 3 )
