@@ -9,7 +9,7 @@
 [ext_resource path="res://InfiniteScrollingBackground.gd" type="Script" id=7]
 [ext_resource path="res://GameUi.tscn" type="PackedScene" id=8]
 
-[node name="GameScene" type="Node2D"]
+[node name="main" type="Node2D"]
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
