@@ -522,4 +522,5 @@ script = ExtResource( 13 )
 [node name="Coin_Timer" type="Timer" parent="Coin_spawner"]
 autostart = true
 
+[connection signal="coin_collected" from="character" to="GameUI" method="_on_character_coin_collected"]
 [connection signal="timeout" from="Coin_spawner/Coin_Timer" to="Coin_spawner" method="_on_Timer_timeout"]

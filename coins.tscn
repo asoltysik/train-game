@@ -23,6 +23,7 @@ animations = [ {
 
 [node name="coins" type="Area2D"]
 position = Vector2( 0, 0.166855 )
+gravity_vec = Vector2( 0, 0 )
 script = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -34,3 +35,5 @@ scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 2 )
 frame = 6
 playing = true
+
+[connection signal="body_entered" from="." to="." method="_on_coins_body_entered"]

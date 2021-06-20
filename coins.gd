@@ -13,9 +13,6 @@ func _process(delta):
 	pass
 
 func _on_coins_body_entered(body):
-	print("Kolizja")
-	pass
+	queue_free()
+	body.add_coin()
 	
-func _on_coins_mouse_entered():
-	print("Mouse")
-	pass

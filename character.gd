@@ -3,6 +3,8 @@ extends KinematicBody2D
 export var SPEED := 160
 var move_vector = Vector2.ZERO
 var jump = false
+var coins = 0
+signal coin_collected
 
 enum {RUNNING, JUMPING}
 
@@ -50,3 +52,8 @@ func _process(delta):
 	
 	move_vector = move_and_slide(move_vector, Vector2.ZERO)
 
+func add_coin():
+	print("play")
+	$CollectSound.play()
+	coins = coins + 1
+	emit_signal("coin_collected")

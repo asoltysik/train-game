@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Rise01.mp3-8bed4b411bcad8c9e5c8992d2dd027ae.mp3str"
+
+[deps]
+
+source_file="res://resources/sound/Rise01.mp3"
+dest_files=[ "res://.import/Rise01.mp3-8bed4b411bcad8c9e5c8992d2dd027ae.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

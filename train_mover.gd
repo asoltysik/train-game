@@ -3,7 +3,7 @@ extends Node
 
 var counter = 2
 
-var tracks = [300, 550, 800]
+var tracks = [300, 425, 550, 675, 800]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
