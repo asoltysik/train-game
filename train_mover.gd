@@ -6,6 +6,7 @@ var MAX_COUNTER = 10
 var time_passed = 0
 var train_counter = 2
 
+
 var tracks = [300, 550, 800]
 
 var train_scene = load("res://Train.tscn")

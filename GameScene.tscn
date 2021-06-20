@@ -9,12 +9,14 @@
 [ext_resource path="res://InfiniteScrollingBackground.gd" type="Script" id=7]
 [ext_resource path="res://GameUi.tscn" type="PackedScene" id=8]
 [ext_resource path="res://character.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Coin_spawner.gd" type="Script" id=13]
 [ext_resource path="res://Train.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 464.538, 140.74 )
 
 [node name="main" type="Node2D"]
+light_mask = 2
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
@@ -25,6 +27,7 @@ position = Vector2( 540, 407.15 )
 z_index = 2
 
 [node name="TrackPart" type="Node2D" parent="."]
+light_mask = 0
 position = Vector2( -20, 0 )
 
 [node name="track_01" type="Sprite" parent="TrackPart"]
@@ -523,6 +526,15 @@ __meta__ = {
 
 [node name="GameUI" parent="." instance=ExtResource( 8 )]
 
+
+[node name="Coin_spawner" type="Node2D" parent="."]
+script = ExtResource( 13 )
+
+[node name="Coin_Timer" type="Timer" parent="Coin_spawner"]
+autostart = true
+
+[connection signal="coin_collected" from="character" to="GameUI" method="_on_character_coin_collected"]
+[connection signal="timeout" from="Coin_spawner/Coin_Timer" to="Coin_spawner" method="_on_Timer_timeout"]
 [node name="GroundCollider" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundCollider"]
