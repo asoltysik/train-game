@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://sprites/track_04.png" type="Texture" id=1]
 [ext_resource path="res://sprites/track_02.png" type="Texture" id=2]
@@ -8,14 +8,19 @@
 [ext_resource path="res://sprites/backgrounddetailed1.png" type="Texture" id=6]
 [ext_resource path="res://InfiniteScrollingBackground.gd" type="Script" id=7]
 [ext_resource path="res://GameUi.tscn" type="PackedScene" id=8]
+[ext_resource path="res://character.tscn" type="PackedScene" id=9]
+[ext_resource path="res://character.gd" type="Script" id=10]
+[ext_resource path="res://Coin_spawner.gd" type="Script" id=13]
 
 [node name="main" type="Node2D"]
+light_mask = 2
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
 [node name="TrackPart" type="Node2D" parent="."]
+light_mask = 0
 position = Vector2( -20, 0 )
 
 [node name="track_01" type="Sprite" parent="TrackPart"]
@@ -506,3 +511,15 @@ __meta__ = {
 }
 
 [node name="GameUI" parent="." instance=ExtResource( 8 )]
+
+[node name="character" parent="." instance=ExtResource( 9 )]
+position = Vector2( 541.473, 511.461 )
+script = ExtResource( 10 )
+
+[node name="Coin_spawner" type="Node2D" parent="."]
+script = ExtResource( 13 )
+
+[node name="Coin_Timer" type="Timer" parent="Coin_spawner"]
+autostart = true
+
+[connection signal="timeout" from="Coin_spawner/Coin_Timer" to="Coin_spawner" method="_on_Timer_timeout"]

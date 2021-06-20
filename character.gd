@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var SPEED := 80
+export var SPEED := 160
 var move_vector = Vector2.ZERO
 var jump = false
 
