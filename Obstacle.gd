@@ -1,6 +1,5 @@
-extends Area2D
+extends Node2D
 
-export var train_id = -1
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -13,29 +12,21 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-	
-	
+#func _process(delta):
+#	pass
+
 func _physics_process(delta):
 	position.y = position.y + (100 * delta)
 
-func _on_Train_body_entered(body):
+func _on_Vine_body_entered(body):
 	if not body.is_in_group("player"):
 		return
 	
-	if(body.last_train_id < train_id):
-		body.last_train_id = train_id
-		body.is_on_train = true
-	else:
-		pass
+	body.is_in_obstacle = true
 
 
-func _on_Train_body_exited(body):
+func _on_Vine_body_exited(body):
 	if not body.is_in_group("player"):
 		return
 	
-	if(body.last_train_id == train_id):
-		body.is_on_train = false
-	else:
-		pass
+	body.is_in_obstacle = false

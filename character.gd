@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export var last_train_id = 0
 export var is_on_train = true
+export var is_in_obstacle = false
+export var is_in_tree = false
 
 export var SPEED := 250
 var move_vector = Vector2()
@@ -17,9 +19,10 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	
-	if STATE != JUMPING and not is_on_train:
-		pass
+	var lose_condition = is_in_tree or \
+		(STATE != JUMPING and (not is_on_train or is_in_obstacle))
+	if lose_condition:
+		get_tree().change_scene("res://TheEndScene.tscn")
 		print("LOST" + str(OS.get_time()))
 	
 	if Input.is_action_just_pressed("player_jump"):
