@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+
 export var last_train_id = 0
 export var is_on_train = true
 export var is_in_obstacle = false
@@ -8,6 +9,8 @@ export var is_in_tree = false
 export var SPEED := 250
 var move_vector = Vector2()
 var jump = false
+var coins = 0
+signal coin_collected
 
 enum {RUNNING, JUMPING}
 
@@ -64,3 +67,8 @@ func _physics_process(delta):
 	move_and_slide(move_vector)
 	
 
+func add_coin():
+	print("play")
+	$CollectSound.play()
+	coins = coins + 1
+	emit_signal("coin_collected")
