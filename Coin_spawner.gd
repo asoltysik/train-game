@@ -24,6 +24,7 @@ func _on_Timer_timeout():
 	randomize()
 	tracks.shuffle()
 	coin.position = Vector2(tracks[0], -48)
+	coin.set_z_index(100)
 	add_child(coin)
 	set_next_spawn()
 	pass # Replace with function body.

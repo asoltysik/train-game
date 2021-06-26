@@ -25,7 +25,10 @@ func _physics_process(delta):
 	var lose_condition = is_in_tree or \
 		(STATE != JUMPING and (not is_on_train or is_in_obstacle))
 	if lose_condition:
-		get_tree().change_scene("res://TheEndScene.tscn")
+		var end_scene = load("res://TheEndScene.tscn").instance()
+		end_scene.set_coins(coins);
+		get_parent().queue_free()
+		get_tree().root.add_child(end_scene)
 		print("LOST" + str(OS.get_time()))
 	
 	if Input.is_action_just_pressed("player_jump"):
