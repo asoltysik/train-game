@@ -71,7 +71,6 @@ func _physics_process(delta):
 	
 
 func add_coin():
-	print("play")
-	$CollectSound.play()
+	$CollectSound2.play()
 	coins = coins + 1
 	emit_signal("coin_collected")
